@@ -1,0 +1,236 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 130023424 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3631), pid=27972, tid=24832
+#
+# JRE version:  (22.0+36) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (22+36-2370, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:D:\IntelliJ IDEA Community Edition 2024.1\lib\idea_rt.jar=53920:D:\IntelliJ IDEA Community Edition 2024.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.intellij.rt.testng.RemoteTestNGStarter -usedefaultlisteners false -socket53919 @w@C:\Users\Dmitry Mashenkou\AppData\Local\Temp\idea_working_dirs_testng.tmp -temp C:\Users\Dmitry Mashenkou\AppData\Local\Temp\idea_testng.tmp
+
+Host: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5438)
+Time: Thu Mar 20 20:17:20 2025 Eastern Daylight Time elapsed time: 0.028403 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000029d554baf00):  JavaThread "Unknown thread" [_thread_in_vm, id=24832, stack(0x000000f7f5e00000,0x000000f7f5f00000) (1024K)]
+
+Stack: [0x000000f7f5e00000,0x000000f7f5f00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6e2349]  (no source info available)
+V  [jvm.dll+0x874ed3]  (no source info available)
+V  [jvm.dll+0x8772fe]  (no source info available)
+V  [jvm.dll+0x8779d3]  (no source info available)
+V  [jvm.dll+0x27fcb6]  (no source info available)
+V  [jvm.dll+0x6de9e5]  (no source info available)
+V  [jvm.dll+0x6d34ea]  (no source info available)
+V  [jvm.dll+0x35892a]  (no source info available)
+V  [jvm.dll+0x360e56]  (no source info available)
+V  [jvm.dll+0x3b3d7e]  (no source info available)
+V  [jvm.dll+0x3b4028]  (no source info available)
+V  [jvm.dll+0x32c4ec]  (no source info available)
+V  [jvm.dll+0x32d0a8]  (no source info available)
+V  [jvm.dll+0x83cd9c]  (no source info available)
+V  [jvm.dll+0x3c0cc1]  (no source info available)
+V  [jvm.dll+0x825d8c]  (no source info available)
+V  [jvm.dll+0x45b9ee]  (no source info available)
+V  [jvm.dll+0x45d871]  (no source info available)
+C  [jli.dll+0x52a3]  (no source info available)
+C  [ucrtbase.dll+0x21bb2]  (no source info available)
+C  [KERNEL32.DLL+0x17374]  (no source info available)
+C  [ntdll.dll+0x4cc91]  (no source info available)
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffeba4ac1c8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x0000029d57716dd0 WorkerThread "GC Thread#0"                     [id=15640, stack(0x000000f7f5f00000,0x000000f7f6000000) (1024K)]
+  0x0000029d577277c0 ConcurrentGCThread "G1 Main Marker"            [id=22040, stack(0x000000f7f6000000,0x000000f7f6100000) (1024K)]
+  0x0000029d57728a70 WorkerThread "G1 Conc#0"                       [id=27632, stack(0x000000f7f6100000,0x000000f7f6200000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffeb9bff2b7]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffeba52ccc8] Heap_lock - owner thread: 0x0000029d554baf00
+
+Heap address: 0x0000000084400000, size: 1980 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total reserved 2027520K, committed 0K, used 0K [0x0000000084400000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffeb9ffe4e9]
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.021 Loaded shared library C:\Program Files\Java\jdk-22\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff62cd00000 - 0x00007ff62cd10000 	C:\Program Files\Java\jdk-22\bin\java.exe
+0x00007fff0fb10000 - 0x00007fff0fd08000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffedef70000 - 0x00007ffedef8a000 	C:\Program Files\Avast Software\Avast\aswhook.dll
+0x00007fff0f2a0000 - 0x00007fff0f362000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fff0d3e0000 - 0x00007fff0d6df000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fff0d750000 - 0x00007fff0d850000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fff01220000 - 0x00007fff01237000 	C:\Program Files\Java\jdk-22\bin\jli.dll
+0x00007fff02ed0000 - 0x00007fff02eeb000 	C:\Program Files\Java\jdk-22\bin\VCRUNTIME140.dll
+0x00007fff0f910000 - 0x00007fff0f9bf000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fff0ed70000 - 0x00007fff0ee0e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fff0dce0000 - 0x00007fff0dd7f000 	C:\WINDOWS\System32\sechost.dll
+0x00007fff0dbb0000 - 0x00007fff0dcd3000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fff0d2d0000 - 0x00007fff0d2f7000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007fff0ee10000 - 0x00007fff0efad000 	C:\WINDOWS\System32\USER32.dll
+0x00007fff0d850000 - 0x00007fff0d872000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffefeef0000 - 0x00007ffeff18a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007fff0faa0000 - 0x00007fff0facb000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fff0d1b0000 - 0x00007fff0d2ca000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fff0d880000 - 0x00007fff0d91d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fff03c10000 - 0x00007fff03c1a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007fff0f9c0000 - 0x00007fff0f9ef000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007fff04850000 - 0x00007fff0485c000 	C:\Program Files\Java\jdk-22\bin\vcruntime140_1.dll
+0x00007ffed9c20000 - 0x00007ffed9cae000 	C:\Program Files\Java\jdk-22\bin\msvcp140.dll
+0x00007ffeb98c0000 - 0x00007ffeba608000 	C:\Program Files\Java\jdk-22\bin\server\jvm.dll
+0x00007fff0e0e0000 - 0x00007fff0e14b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fff0d010000 - 0x00007fff0d05b000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffefe290000 - 0x00007ffefe2b7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fff0cff0000 - 0x00007fff0d002000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007fff0b9e0000 - 0x00007fff0b9f2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007fff04740000 - 0x00007fff0474a000 	C:\Program Files\Java\jdk-22\bin\jimage.dll
+0x00007fff07cc0000 - 0x00007fff07ea4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007fff021f0000 - 0x00007fff02224000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007fff0d300000 - 0x00007fff0d382000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffeff3c0000 - 0x00007ffeff3cf000 	C:\Program Files\Java\jdk-22\bin\instrument.dll
+0x00007ffeff870000 - 0x00007ffeff88e000 	C:\Program Files\Java\jdk-22\bin\java.dll
+0x00007fff0e600000 - 0x00007fff0ed6d000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007fff0efc0000 - 0x00007fff0f0eb000 	C:\WINDOWS\System32\ole32.dll
+0x00007fff0dd80000 - 0x00007fff0e0d5000 	C:\WINDOWS\System32\combase.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-22\bin;C:\WINDOWS\SYSTEM32;C:\Program Files\Avast Software\Avast;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;C:\Program Files\Java\jdk-22\bin\server
+
+VM Arguments:
+jvm_args: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:D:\IntelliJ IDEA Community Edition 2024.1\lib\idea_rt.jar=53920:D:\IntelliJ IDEA Community Edition 2024.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.intellij.rt.testng.RemoteTestNGStarter -usedefaultlisteners false -socket53919 @w@C:\Users\Dmitry Mashenkou\AppData\Local\Temp\idea_working_dirs_testng.tmp -temp C:\Users\Dmitry Mashenkou\AppData\Local\Temp\idea_testng.tmp
+java_class_path (initial): D:\IntelliJ IDEA Community Edition 2024.1\lib\idea_rt.jar;D:\IntelliJ IDEA Community Edition 2024.1\plugins\testng\lib\testng-rt.jar;D:\tests\2025_MAVEN_First\target\test-classes;D:\tests\2025_MAVEN_First\target\classes;C:\Users\Dmitry Mashenkou\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-java\4.28.1\selenium-java-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-api\4.28.1\selenium-api-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.28.1\selenium-chrome-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.28.1\selenium-chromium-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-json\4.28.1\selenium-json-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.28.1\selenium-manager-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v130\4.28.1\selenium-devtools-v130-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v131\4.28.1\selenium-devtools-v131-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v132\4.28.1\selenium-devtools-v132-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.28.1\selenium-devtools-v85-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.28.1\selenium-edge-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.28.1\selenium-firefox-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-http\4.28.1\selenium-http-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.28.1\selenium-ie-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.28.1\selenium-remote-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\guava\guava\33.4.0-jre\guava-33.4.0-jre.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\checkerframework\checker-qual\3.43.0\checker-qual-3.43.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\errorprone\error_prone_annotations\2.36.0\error_prone_annotations-2.36.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.28.0-alpha\opentelemetry-semconv-1.28.0-alpha.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-api\1.46.0\opentelemetry-api-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-context\1.46.0\opentelemetry-context-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.46.0\opentelemetry-exporter-logging-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.46.0\opentelemetry-sdk-common-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.46.0\opentelemetry-sdk-extension-autoconfigure-spi-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.46.0\opentelemetry-sdk-extension-autoconfigure-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.46.0-alpha\opentelemetry-api-incubator-1.46.0-alpha.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.46.0\opentelemetry-sdk-trace-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.46.0\opentelemetry-sdk-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.46.0\opentelemetry-sdk-metrics-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.46.0\opentelemetry-sdk-logs-1.46.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-os\4.28.1\selenium-os-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.28.1\selenium-safari-driver-4.28.1.jar;C:\Users\Dmitry Mashenkou\.m2\repository\org\seleniumhq\selenium\selenium-support\4.28.1\selenium-support-4.28.1.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+   size_t InitialHeapSize                          = 130023424                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2076180480                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2076180480                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-22
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\tests\drivers\ie\;D:\tests\drivers\ff\;D:\tests\drivers\chrome\;C:\php;C:\Program Files\dotnet\;C:\Program Files\Java\jdk-22\bin;C:\Users\Dmitry Mashenkou\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;D:\tests\apache-maven-3.9.6-bin\apache-maven-3.9.6\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Git\cmd;C:\Program Files (x86)\nodejs\;C:\Program Files\PuTTY\;C:\Program Files\Calibre2\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Dmitry Mashenkou\Downloads\bind-9.18.31\bind-9.18.31\bin;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python39\;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python312\;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python37\;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\Dmitry Mashenkou\AppData\Local\Programs\Python\Python311\;D:\Python\Scripts\;D:\Python\;C:\Users\Dmitry Mashenkou\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2019.2.3\bin;;D:\tests\drivers\chrome\;D:\tests\drivers\ff\;D:\tests\drivers\ie\;C:\Program Files\JetBrains\PhpStorm 2019.3.3\bin;;D:\IntelliJ IDEA Community Edition 2024.1\bin;;C:\Users\Dmitry Mashenkou\AppData\Local\Microsoft\WindowsApps;C:\Users\Dmitry Mashenkou\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Dmitry Mashenkou\AppData\Roaming\npm;
+USERNAME=Dmitry Mashenkou
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+TMP=C:\Users\Dmitry Mashenkou\AppData\Local\Temp
+TEMP=C:\Users\Dmitry Mashenkou\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.5438)
+OS uptime: 8 days 20:24 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xf0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, f16c
+Processor Information for all 8 processors :
+  Max Mhz: 2001, Current Mhz: 2001, Mhz Limit: 2001
+
+Memory: 4k page, system-wide physical 7919M (408M free)
+TotalPageFile size 21115M (AvailPageFile size 86M)
+current process WorkingSet (physical memory assigned to process): 12M, peak: 12M
+current process commit charge ("private bytes"): 61M, peak: 184M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (22+36-2370) for windows-amd64 JRE (22+36-2370), built on 2024-02-15T22:15:19Z by "mach5one" with MS VC++ 17.6 (VS2022)
+
+END.
