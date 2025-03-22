@@ -38,12 +38,12 @@ public class InternetTest {
        WebElement welcomePage = driver.findElement(By.cssSelector(".heading"));
        Assert.assertEquals(welcomePage.getText(), "Welcome to the-internet");
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         WebElement openLink = driver.findElement(By.cssSelector("#content > ul:nth-child(4) > li:nth-child(1) > a:nth-child(1)"));
         openLink.click();
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         WebElement pageAB = driver.findElement(By.cssSelector(".example > h3:nth-child(1)"));
         Assert.assertEquals(pageAB.getText(), "A/B Test Variation 1");
